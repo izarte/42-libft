@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: izarate- <izarate-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 11:20:42 by izarate-          #+#    #+#             */
-/*   Updated: 2022/09/22 01:10:41 by izarate-         ###   ########.fr       */
+/*   Created: 2022/09/22 00:58:31 by izarate-          #+#    #+#             */
+/*   Updated: 2022/09/22 01:18:40 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+char	*ft_strrchr(const char *str, int c)
+{
+	char	*str_out;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_strlen(char *str);
-
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-char	*ft_strchr(const char *str, int c);
-char	*ft_strrchr(const char *str, int c);
-
-#endif
+	str_out = 0;
+	while(*str)
+	{
+		if (*str == c)
+			str_out = (char *)str;
+		str++;
+	}
+	return (str_out);
+}
