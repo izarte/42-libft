@@ -9,23 +9,38 @@ SRCS		=	ft_isalpha.c \
 				ft_isprint.c \
 				ft_strlen.c
 
-OBJS		= ${BIN}${SRCS:.c=.o}
+OBJS_NO_BIN		= ${SRCS:.c=.o}
+
+OBJS		= $(addprefix ${BIN}, ${OBJS_NO_BIN})
 
 CC			= gcc
+
+NAME		= libft.a
 
 COMPILE.C	= ${CC} ${FLAGS} -c
 
 OUTPUT_OPT	= -o $@
 
-%.o: %.c
-	${COMPILE.C} ${OUTPUT_OPT} $<
+RM			= rm -f
+
+${NAME}:	${OBJS}
+		ar rcs ${NAME} ${OBJS}
+
+print:
+		echo ${OBJS}
+
+bin/%.o:	%.c
+	${COMPILE.C} -o $@ $<
+
+main:	${NAME}
+	${CC} ${COMPILE.C} -c main.c \
+	${CC} ${FLAGS} ${NAME} main.o -o exec.o
 
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJS} *.o
 
 fclean:	clean
 		${RM} ${NAME}
 
-RM			= rm -f
 
 .PHONY	= clean fclean
