@@ -1,6 +1,8 @@
 BIN			=	./bin/
 
-FLAGS		= -Wall -Wextra -Werror
+DEV-FLAGS	= -Wall -Wextra
+
+FLAGS		= ${DEV-FLAGS} -Werror
 
 SRCS		=	ft_isalpha.c 	\
 				ft_isdigit.c 	\
@@ -48,10 +50,10 @@ main:	${NAME}
 
 test:	${NAME} c_test
 	rm -f a.out
-	${CC} ${FLAGS} bin/test.o -L. -lft && ./a.out
+	${CC} ${DEV-FLAGS} bin/test.o -L. -lft && ./a.out
 
 c_test: ${ARGS}
-	${COMPILE.C} ${ARGS} -o bin/test.o \
+	${CC} ${DEV-FLAGS} -c ${ARGS} -o bin/test.o \
 	
 
 clean:
