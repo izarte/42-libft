@@ -1,5 +1,7 @@
 BIN			=	./bin/
 
+BIN_TEST	= ./bin/tests/
+
 DEV-FLAGS	= -Wall -Wextra
 
 FLAGS		= ${DEV-FLAGS} -Werror
@@ -19,11 +21,24 @@ SRCS		=	ft_isalpha.c 	\
 				ft_bzero.c		\
 				ft_memchr.c		\
 				ft_memcpy.c		\
-				ft_memcmp.c
+				ft_memcmp.c		\
+				ft_strstr.c		\
+				ft_atoi.c		\
+				ft_strlcpy.c	\
+				ft_strlcat.c
+
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
 
 OBJS		= $(addprefix ${BIN}, ${OBJS_NO_BIN})
+
+T  = tests/test_
+
+# TESTS_SRCS	= $(addprefix ${T}, ${SRCS})
+TESTS_SRCS	= tests/test_ft_isalpha.c
+TESTS_NO_BIN = ${TESTS_SRCS:.c=.o}
+TESTS_OBJS  = $(addprefix ${BIN}, ${TESTS_NO_BIN})
+
 
 CC			= gcc
 
@@ -44,17 +59,15 @@ print:
 bin/%.o:	%.c
 	${COMPILE.C} $< -o $@
 
+bin/tests/%.o: tests/%.c
+	${CC} ${DEV-FLAGS} $< -o $@ -L. -lft 
+
 main:	${NAME}
 	${COMPILE.C} main.c \
 	${CC} ${FLAGS} ${NAME} main.o -o exec.o
 
-test:	${NAME} c_test
-	rm -f a.out
-	${CC} ${DEV-FLAGS} bin/test.o -L. -lft && ./a.out
-
-c_test: ${ARGS}
-	${CC} ${DEV-FLAGS} -c ${ARGS} -o bin/test.o \
-	
+test:	${NAME} ${TESTS_OBJS}
+	./${TESTS_OBJS}
 
 clean:
 		${RM} ${OBJS} *.o a.out
