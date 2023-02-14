@@ -3,16 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izarate- <izarate-@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 00:50:13 by izarate-          #+#    #+#             */
-/*   Updated: 2022/09/22 01:18:48 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:42:35 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *str, int c)
 {
-	while (*str && *str != c)
-		str++;
-	return ((char *)str);
+	char *s;
+	char cc;
+
+	cc = (char) c;
+	s = (char *)str;
+	while (*s && *s != cc)
+		s++;
+	if (*s != cc)
+		return (0);
+	return (s);
 }
