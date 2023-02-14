@@ -6,13 +6,13 @@
 /*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 00:50:13 by izarate-          #+#    #+#             */
-/*   Updated: 2023/02/14 15:07:35 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:25:59 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *str, int c)
 {
-	char *s;
+	char	*s;
 
 	s = (char *)str;
 	while (*s && *s != c)
