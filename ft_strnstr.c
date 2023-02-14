@@ -6,7 +6,7 @@
 /*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:03:57 by izarate-          #+#    #+#             */
-/*   Updated: 2023/02/14 17:01:42 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:03:07 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 		big_ptr = 0;
 	return (big_ptr);
 }
-
