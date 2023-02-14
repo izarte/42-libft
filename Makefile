@@ -15,7 +15,7 @@ SRCS		=	ft_isalpha.c 	\
 				ft_toupper.c	\
 				ft_tolower.c	\
 				ft_strchr.c		\
-				# ft_strrchr.c	\
+				ft_strrchr.c	\
 				# ft_strncmp.c	\
 				# ft_memset.c		\
 				# ft_bzero.c		\
@@ -66,7 +66,7 @@ main:	${NAME}
 	${COMPILE.C} main.c \
 	${CC} ${FLAGS} ${NAME} main.o -o exec.o
 
-test:	${NAME} ${TESTS_OBJS}
+test:	${NAME} ${TESTS_OBJS} ${OBJS}
 	for file in ${TESTS_OBJS}; do \
 		./$$file; \
 	done

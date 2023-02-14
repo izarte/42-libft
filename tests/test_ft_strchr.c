@@ -8,7 +8,7 @@ void	test(const char *str, char c)
 {
 	char *ori = strchr(str, c);
 	char *own = ft_strchr(str, c);
-	if (ori && own || !ori && !own)
+	if ((ori && own) || (!ori && !own))
 		return;
 	if (strlen(ori) == strlen(own) || !strcmp(ori, own))
 		return;
@@ -22,6 +22,7 @@ int main(void)
 	test("Second string", 's');
 	test("Multiple u in string", 'u');
 	test("Not found", 'z');
-	test("Last test", 'e');
+	test("LAST TEST in test", 'e');
+	test("", '-');
 	printf("Test ft_strchr completed!\n");
 }
