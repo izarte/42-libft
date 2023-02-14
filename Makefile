@@ -19,7 +19,7 @@ SRCS		=	ft_isalpha.c 	\
 				ft_strncmp.c	\
 				ft_memset.c		\
 				ft_bzero.c		\
-				# ft_memchr.c		\
+				ft_memchr.c		\
 				# ft_memcpy.c		\
 				# ft_memcmp.c		\
 				# ft_strstr.c		\

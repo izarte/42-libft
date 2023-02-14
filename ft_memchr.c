@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izarate- <izarate-@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 09:45:57 by izarate-          #+#    #+#             */
-/*   Updated: 2022/09/23 09:52:16 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:05:18 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	*ft_memchr(void *str, int c, size_t n)
 
 	uc_str = str;
 	uc = (char)c;
-	while (n && *uc_str != uc)
-	{
-		n--;
+	n--;
+	while (n-- && *uc_str != uc)
 		uc_str++;
-	}
 	str = uc_str;
+	if (*uc_str != uc)
+		return (0);
 	return (str);
 }
