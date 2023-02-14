@@ -13,19 +13,19 @@ SRCS		=	ft_isalpha.c 	\
 				ft_isprint.c 	\
 				ft_strlen.c		\
 				ft_toupper.c	\
-				ft_tolower.c	\
-				ft_strchr.c		\
-				ft_strrchr.c	\
-				ft_strncmp.c	\
-				ft_memset.c		\
-				ft_bzero.c		\
-				ft_memchr.c		\
-				ft_memcpy.c		\
-				ft_memcmp.c		\
-				ft_strstr.c		\
-				ft_atoi.c		\
-				ft_strlcpy.c	\
-				ft_strlcat.c
+				# ft_tolower.c	\
+				# ft_strchr.c		\
+				# ft_strrchr.c	\
+				# ft_strncmp.c	\
+				# ft_memset.c		\
+				# ft_bzero.c		\
+				# ft_memchr.c		\
+				# ft_memcpy.c		\
+				# ft_memcmp.c		\
+				# ft_strstr.c		\
+				# ft_atoi.c		\
+				# ft_strlcpy.c	\
+				# ft_strlcat.c
 
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
@@ -34,8 +34,8 @@ OBJS		= $(addprefix ${BIN}, ${OBJS_NO_BIN})
 
 T  = tests/test_
 
-# TESTS_SRCS	= $(addprefix ${T}, ${SRCS})
-TESTS_SRCS	= tests/test_ft_isalpha.c
+TESTS_SRCS	= $(addprefix ${T}, ${SRCS})
+# TESTS_SRCS	= tests/test_ft_isdigit.c
 TESTS_NO_BIN = ${TESTS_SRCS:.c=.o}
 TESTS_OBJS  = $(addprefix ${BIN}, ${TESTS_NO_BIN})
 
@@ -67,10 +67,12 @@ main:	${NAME}
 	${CC} ${FLAGS} ${NAME} main.o -o exec.o
 
 test:	${NAME} ${TESTS_OBJS}
-	./${TESTS_OBJS}
+	for file in ${TESTS_OBJS}; do \
+		./$$file; \
+	done
 
 clean:
-		${RM} ${OBJS} *.o a.out
+		${RM} ${OBJS} ${TESTS_OBJS} *.o a.out
 
 fclean:	clean
 		${RM} ${NAME}
