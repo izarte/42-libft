@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izarate- <izarate-@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 09:24:27 by izarate-          #+#    #+#             */
-/*   Updated: 2022/09/23 09:38:43 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:55:24 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *str, size_t n)
 {
-	unsigned char *uc_str;
+	unsigned char	*uc_str;
 
 	uc_str = str;
 	while (n)

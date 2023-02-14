@@ -18,7 +18,7 @@ SRCS		=	ft_isalpha.c 	\
 				ft_strrchr.c	\
 				ft_strncmp.c	\
 				ft_memset.c		\
-				# ft_bzero.c		\
+				ft_bzero.c		\
 				# ft_memchr.c		\
 				# ft_memcpy.c		\
 				# ft_memcmp.c		\
@@ -35,7 +35,6 @@ OBJS		= $(addprefix ${BIN}, ${OBJS_NO_BIN})
 T  = tests/test_
 
 TESTS_SRCS	= $(addprefix ${T}, ${SRCS})
-# TESTS_SRCS	= tests/test_ft_isdigit.c
 TESTS_NO_BIN = ${TESTS_SRCS:.c=.o}
 TESTS_OBJS  = $(addprefix ${BIN}, ${TESTS_NO_BIN})
 
