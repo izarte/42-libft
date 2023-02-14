@@ -6,7 +6,7 @@
 /*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 00:58:31 by izarate-          #+#    #+#             */
-/*   Updated: 2023/02/14 15:10:38 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:23:28 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *str, int c)
 	int		i;
 
 	str_out = (char *)str;
-	i  = ft_strlen(str_out);
+	i = ft_strlen(str_out);
 	while (i > 0 && str[i] != c)
 		i--;
 	str_out = (char *)str + i;
