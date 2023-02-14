@@ -52,7 +52,7 @@ int main(void)
 	test("Second string", "Sec", 8);
 	test("Multiple u in string", "u", 1);
 	test("Multiple u in string", "u", 4);
-	test("Multiple u in string", "u", 1);
+	test("Multiple u in string", "u", 15);
 	test("Not found", "exit", 10);
 	test("LAST TEST in test", "TESTa", 5);
 	printf("Test ft_strnstr completed!\n");
