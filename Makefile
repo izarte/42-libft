@@ -25,7 +25,7 @@ SRCS		=	ft_isalpha.c 	\
 				ft_strnstr.c	\
 				ft_atoi.c		\
 				ft_strlcpy.c	\
-				# ft_strlcat.c
+				ft_strlcat.c
 
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
