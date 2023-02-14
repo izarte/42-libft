@@ -27,5 +27,5 @@ int main(void)
 	test('.');
 	test(-2);
 	test(-100);
-	printf("Test ft_isdigit completed!\n");
+	printf("Test ft_toupper completed!\n");
 }
