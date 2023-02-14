@@ -25,18 +25,3 @@ int main(void)
 	test("LAST TEST in test", 'e');
 	printf("Test ft_strrchr completed!\n");
 }
-
-// void	test(const char *str, int d)
-// {
-// 	printf("Test: Data: \"%s\" Char: %i (%c)\n", str, d, d);
-// 	printf(" - Original: \"%s\"\n", strrchr(str, d));
-// 	printf(" - Custom  : \"%s\"\n", ft_strrchr(str, d));	
-// }
-
-// int		main(void)
-// {
-// 	test("Hola caracola", 'c');
-// 	test("ESTOsi estono:D", ' ');
-// 	test("hayvariasasenlafrase", 'a');
-// 	test("no hay resultados en esta", '-');
-// }
