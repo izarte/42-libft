@@ -6,7 +6,7 @@
 /*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:06:24 by izarate-          #+#    #+#             */
-/*   Updated: 2023/02/15 14:21:57 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:26:30 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void    *ft_calloc(size_t n, size_t size)
     unsigned char   *ptr;
 
     ptr = malloc(n * size);
+    if (!ptr)
+        reutrn (0);
     while (n--)
     {
         *ptr = 0;
