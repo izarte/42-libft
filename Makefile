@@ -6,7 +6,9 @@ DEV-FLAGS	= -Wall -Wextra
 
 FLAGS		= ${DEV-FLAGS} -Werror
 
-SRCS		=	ft_isalpha.c 	\
+LIBC_PATH	= libc/
+
+LIBC_SRC	=	ft_isalpha.c 	\
 				ft_isdigit.c 	\
 				ft_isalnum.c 	\
 				ft_isascii.c 	\
@@ -30,8 +32,14 @@ SRCS		=	ft_isalpha.c 	\
 				ft_calloc.c		\
 				ft_strdup.c
 
+ADITIONAL_PATH	= aditional/
+ADITIONAL_SRC	= ft_substr.c
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
+
+LIBC		= $(addprefix ${LIBC_PATH}, ${LIBC_SRC})
+ADITIONAL	= $(addprefix ${ADITIONAL_PATH}, ${ADITIONAL_SRC})
+SRCS			= ${LIBC} ${ADITIONAL}
 
 OBJS		= $(addprefix ${BIN}, ${OBJS_NO_BIN})
 
@@ -51,6 +59,7 @@ OUTPUT_OPT	= -o $@
 
 RM			= rm -f
 
+
 ${NAME}:	${OBJS}
 	@	ar rcs ${NAME} ${OBJS}
 	@	echo "Succesfully created ${NAME}"
@@ -67,6 +76,9 @@ test:	${NAME} ${TESTS_OBJS} ${OBJS}
 	@	for file in ${TESTS_OBJS}; do \
 			./$$file; \
 		done
+
+print:
+	@	echo "${SRCS}"
 
 clean:
 	@	${RM} ${OBJS} ${TESTS_OBJS} *.o a.out
