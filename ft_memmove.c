@@ -12,16 +12,20 @@
 
 #include <stddef.h>
 
-void	*ft_memmove(void *str1, const void *str2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	unsigned char	*uc_str1;
-	unsigned char	*uc_str2;
+	unsigned char		*uc_dst;
+	const unsigned char	*uc_src;
 
-	uc_str1 = str1;
-	uc_str2 = str2;
-
-	while (n)
-	{
-		
-	}
+	uc_dst = (unsigned char *) dst;
+	uc_src = (const unsigned char *) src;
+	if (!uc_dst || !uc_src)
+		return (0);
+	if (uc_src < uc_dst && uc_dst < uc_src + n)
+		while (n--)
+			*(uc_dst + n) = *(uc_src + n);
+	else
+		while (n--)
+			*uc_dst++ = *uc_src++;
+	return (dst);
 }
