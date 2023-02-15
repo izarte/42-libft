@@ -6,7 +6,7 @@
 /*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 11:20:42 by izarate-          #+#    #+#             */
-/*   Updated: 2023/02/15 14:21:51 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:44:12 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int		ft_atoi(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t  ft_strlcat(char *dst, const char *src, size_t size);
 void    *ft_calloc(size_t n, size_t size);
+char    *ft_strdup(const char *str);
 
 #endif

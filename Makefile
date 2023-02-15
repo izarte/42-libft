@@ -1,6 +1,6 @@
-BIN			=	./bin/
+BIN			=	bin/
 
-BIN_TEST	= ./bin/tests/
+BIN_TEST	= bin/tests/
 
 DEV-FLAGS	= -Wall -Wextra
 
@@ -27,7 +27,8 @@ SRCS		=	ft_isalpha.c 	\
 				ft_atoi.c		\
 				ft_strlcpy.c	\
 				ft_strlcat.c	\
-				ft_calloc.c
+				ft_calloc.c		\
+				ft_strdup.c
 
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
@@ -40,7 +41,6 @@ TESTS_SRCS	= $(addprefix ${T}, ${SRCS})
 TESTS_NO_BIN = ${TESTS_SRCS:.c=.o}
 TESTS_OBJS  = $(addprefix ${BIN}, ${TESTS_NO_BIN})
 
-
 CC			= gcc
 
 NAME		= libft.a
@@ -52,31 +52,29 @@ OUTPUT_OPT	= -o $@
 RM			= rm -f
 
 ${NAME}:	${OBJS}
-		ar rcs ${NAME} ${OBJS}
-
-print:
-		echo ${OBJS}
+	@	ar rcs ${NAME} ${OBJS}
+	@	echo "Succesfully created ${NAME}"
 
 bin/%.o:	%.c
-	${COMPILE.C} $< -o $@
+	@	echo "$< OK"
+	@	${COMPILE.C} $< -o $@
 
 bin/tests/%.o: tests/%.c
-	${CC} ${DEV-FLAGS} $< -o $@ -L. -lft 
+	@	echo "$< OK"
+	@	${CC} ${DEV-FLAGS} $< -o $@ -L. -lft 
 
-main:	${NAME}
-	${COMPILE.C} main.c \
-	${CC} ${FLAGS} ${NAME} main.o -o exec.o
-
-test:	${NAME} ${TESTS_OBJS}
-	for file in ${TESTS_OBJS}; do \
-		./$$file; \
-	done
+test:	${NAME} ${TESTS_OBJS} ${OBJS}
+	@	for file in ${TESTS_OBJS}; do \
+			./$$file; \
+		done
 
 clean:
-		${RM} ${OBJS} ${TESTS_OBJS} *.o a.out
+	@	${RM} ${OBJS} ${TESTS_OBJS} *.o a.out
+	@	echo "Succesfully deleted objects"
 
 fclean:	clean
-		${RM} ${NAME}
+	@:	${RM} ${NAME}
+	@	echo "Succesfully deleted library"
 
 
 .PHONY	= clean fclean

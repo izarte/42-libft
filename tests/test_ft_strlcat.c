@@ -25,7 +25,7 @@ size_t ori_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
         src_index++;
         /* don't copy more than dstsize characters
            minus one */
-        if( offset==dstsize-1)
+        if(offset==(int)dstsize-1)
             break;
     }
     /* always cap the string! */
