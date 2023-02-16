@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <bsd/string.h>
 
-#include "../libft.h"
+#include "../../libft.h"
 
 size_t	ori_strlcpy(char *dst, const char *src, size_t size)
 {

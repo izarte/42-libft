@@ -43,11 +43,19 @@ SRCS			= ${LIBC} ${ADITIONAL}
 
 OBJS		= $(addprefix ${BIN}, ${OBJS_NO_BIN})
 
-T  = tests/test_
+T  = tests/
 
-TESTS_SRCS	= $(addprefix ${T}, ${SRCS})
-TESTS_NO_BIN = ${TESTS_SRCS:.c=.o}
-TESTS_OBJS  = $(addprefix ${BIN}, ${TESTS_NO_BIN})
+TESTS_LIBC_SRC 			= $(addprefix test_, ${LIBC_SRC})
+TESTS_LIBC 				= $(addprefix ${LIBC_PATH}, ${TESTS_LIBC_SRC})
+TESTS_ADITIONAL_SRC 	= $(addprefix test_, ${ADITIONAL_SRC})
+TESTS_ADITIONAL 		= $(addprefix ${ADITIONAL_PATH}, ${TESTS_ADITIONAL_SRC})
+
+TEST_SRC 				= ${TESTS_LIBC} ${TESTS_ADITIONAL}
+# TEST_SRC 				= ${TESTS_ADITIONAL}
+
+TEST_SRCS_DIR			= $(addprefix ${T}, ${TEST_SRC})
+TESTS_NO_BIN 			= ${TEST_SRCS_DIR:.c=.o}
+TESTS_OBJS  			= $(addprefix ${BIN}, ${TESTS_NO_BIN})
 
 CC			= gcc
 
@@ -61,7 +69,7 @@ RM			= rm -f
 
 
 ${NAME}:	${OBJS}
-	@	ar rcs ${NAME} ${OBJS}
+	@	ar -rcs ${NAME} ${OBJS}
 	@	echo "Succesfully created ${NAME}"
 
 bin/%.o:	%.c
@@ -78,7 +86,7 @@ test:	${NAME} ${TESTS_OBJS} ${OBJS}
 		done
 
 print:
-	@	echo "${SRCS}"
+	@	echo "${TESTS_OBJS}"
 
 clean:
 	@	${RM} ${OBJS} ${TESTS_OBJS} *.o a.out

@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "../libft.h"
+#include "../../libft.h"
 
 void	test(const char *str_ori, const char *str_own, char *buff_ori, char *buff_own, size_t n)
 {

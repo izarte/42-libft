@@ -3,7 +3,7 @@
 #include <string.h>
 #include <bsd/string.h>
 
-#include "../libft.h"
+#include "../../libft.h"
 
 char	*ft_strstr(const char *str, const char *needle, size_t len)
 {
