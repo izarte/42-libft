@@ -30,10 +30,12 @@ LIBC_SRC	=	ft_isalpha.c 	\
 				ft_strlcpy.c	\
 				ft_strlcat.c	\
 				ft_calloc.c		\
-				ft_strdup.c
+				ft_strdup.c		
+
 
 ADITIONAL_PATH	= aditional/
-ADITIONAL_SRC	= ft_substr.c
+ADITIONAL_SRC	=	ft_substr.c		\
+					ft_strjoin.c
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
 
