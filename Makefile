@@ -37,6 +37,7 @@ ADITIONAL_PATH	= aditional/
 ADITIONAL_SRC	=	ft_substr.c		\
 					ft_strjoin.c	\
 					ft_strtrim.c	\
+					ft_split.c		\
 					ft_itoa.c		\
 					ft_strmapi.c	\
 					ft_striteri.c	\
@@ -81,14 +82,16 @@ ${NAME}:	${OBJS}
 	@	echo "Succesfully created ${NAME}"
 
 bin/%.o:	%.c
+	@	mkdir -p bin/libc bin/aditional
 	@	echo "$< OK"
-	@	${COMPILE.C} -c $< -o $@
+	@	${CC} ${DEV-FLAGS} -c $< -o $@
 
 bin/tests/%.o: tests/%.c
+	@ 	mkdir -p bin/tests/libc bin/tests/aditional
 	@	echo "$< OK"
 	@	${CC} ${DEV-FLAGS} $< -o $@ -L. -lft 
 
-test:	fclean ${NAME} ${TESTS_OBJS} ${OBJS} 
+test:	fclean ${NAME} ${TESTS_OBJS} ${OBJS}
 	@	for file in ${TESTS_OBJS}; do \
 			./$$file; \
 		done
