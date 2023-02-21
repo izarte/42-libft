@@ -12,7 +12,7 @@ char	*strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (s == NULL)
 		return (NULL);
-	str = malloc(ft_strlen(s) + 1);
+	str = malloc(strlen(s) + 1);
 	if (str == NULL)
 		return (NULL);
 	i = 0;

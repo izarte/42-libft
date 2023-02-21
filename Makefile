@@ -38,7 +38,8 @@ ADITIONAL_SRC	=	ft_substr.c		\
 					ft_strjoin.c	\
 					ft_strtrim.c	\
 					ft_itoa.c		\
-					ft_strmapi.c
+					ft_strmapi.c	\
+					ft_striteri.c
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
 
@@ -79,7 +80,7 @@ ${NAME}:	${OBJS}
 
 bin/%.o:	%.c
 	@	echo "$< OK"
-	@	${CC} ${DEV-FLAGS} -c $< -o $@
+	@	${COMPILE.C} -c $< -o $@
 
 bin/tests/%.o: tests/%.c
 	@	echo "$< OK"
