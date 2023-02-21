@@ -37,7 +37,8 @@ ADITIONAL_PATH	= aditional/
 ADITIONAL_SRC	=	ft_substr.c		\
 					ft_strjoin.c	\
 					ft_strtrim.c	\
-					ft_itoa.c
+					ft_itoa.c		\
+					ft_strmapi.c
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
 
