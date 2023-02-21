@@ -36,7 +36,8 @@ LIBC_SRC	=	ft_isalpha.c 	\
 ADITIONAL_PATH	= aditional/
 ADITIONAL_SRC	=	ft_substr.c		\
 					ft_strjoin.c	\
-					ft_strtrim.c
+					ft_strtrim.c	\
+					ft_itoa.c
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
 
@@ -77,19 +78,19 @@ ${NAME}:	${OBJS}
 
 bin/%.o:	%.c
 	@	echo "$< OK"
-	@	${COMPILE.C} $< -o $@
+	@	${CC} ${DEV-FLAGS} -c $< -o $@
 
 bin/tests/%.o: tests/%.c
 	@	echo "$< OK"
 	@	${CC} ${DEV-FLAGS} $< -o $@ -L. -lft 
 
-test:	${NAME} ${TESTS_OBJS} ${OBJS}
+test:	fclean ${NAME} ${TESTS_OBJS} ${OBJS} 
 	@	for file in ${TESTS_OBJS}; do \
 			./$$file; \
 		done
 
 print:
-	@	echo "${TESTS_OBJS}"
+	@	echo "${OBJS}"
 
 clean:
 	@	${RM} ${OBJS} ${TESTS_OBJS} *.o a.out
