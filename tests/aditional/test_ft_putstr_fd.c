@@ -6,9 +6,14 @@
 
 #include "../../libft.h"
 
-void	putchar_fd(char c, int fd)
+void	putstr_fd(char *s, int fd)
 {
-	write(fd, &c, 1);
+	size_t	len;
+
+	if (s == NULL)
+		return ;
+	len = ft_strlen(s);
+	write(fd, s, len);
 }
 
 void compareFiles(char *name1, char *name2){
@@ -36,12 +41,12 @@ void compareFiles(char *name1, char *name2){
    }
 }
 
-void	test(char c)
+void	test(char *str)
 {
 	int fd1 = open("file_ori", O_WRONLY);
 	int fd2 = open("file_own", O_WRONLY);
-	putchar_fd(c, fd1);
-	ft_putchar_fd(c, fd2);
+	putstr_fd(str, fd1);
+	ft_putstr_fd(str, fd2);
 	close(fd1);
 	close(fd2);
 	compareFiles("file_ori", "file_own");
@@ -49,11 +54,8 @@ void	test(char c)
 
 int main()
 {
-	test('I');
-	test('Z');
-	test('R');
-	test('i');
-	test('z');
-	test('r');
-	printf("Test ft_putchar_fd completed!\n");
+	test("That is a test");
+	test("This string should be in the file given.\nYes it is");
+	test("berghbe<asrfgehargftueagña<erujfghnmxoñialewkrjsdnòpgfauheirnjf sdo`gvueajrsofdjgmk'2Q+E`ÇASDJOFMKETPODUFGHNKVWODSHBNJGV AOESRUHFGD '1q`2 'wlsañd,owariujsdkmfvàwsdcgkjnvwqIDSJAKGNXCVB9OAWPÑOIE KFomWSF SJDOIFGLVWÀESODJGMAPWE-ÑRSFJGCMVEALDFJNXGCV");
+	printf("Test ft_putstr_fd completed!\n");
 }
