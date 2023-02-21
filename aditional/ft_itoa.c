@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h> // TODO: REM0VE
 
 static int	count_digits(int n);
 
