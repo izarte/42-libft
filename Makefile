@@ -48,7 +48,8 @@ ADITIONAL_SRC	=	ft_substr.c		\
 
 BONUS_PATH	= 	bonus/
 BONUS_SRC	=	ft_lstnew.c			\
-				ft_lstadd_front.c
+				ft_lstadd_front.c	\
+				ft_lstsize.c
 
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
