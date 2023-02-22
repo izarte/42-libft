@@ -46,11 +46,16 @@ ADITIONAL_SRC	=	ft_substr.c		\
 					ft_putendl_fd.c	\
 					ft_putnbr_fd.c
 
+BONUS_PATH	= 	bonus/
+BONUS_SRC	=	ft_lstnew.c	
+
+
 OBJS_NO_BIN		= ${SRCS:.c=.o}
 
 LIBC		= $(addprefix ${LIBC_PATH}, ${LIBC_SRC})
 ADITIONAL	= $(addprefix ${ADITIONAL_PATH}, ${ADITIONAL_SRC})
-SRCS			= ${LIBC} ${ADITIONAL}
+BONUS	= $(addprefix ${BONUS_PATH}, ${BONUS_SRC})
+SRCS			= ${LIBC} ${ADITIONAL} ${BONUS}
 
 OBJS		= $(addprefix ${BIN}, ${OBJS_NO_BIN})
 
@@ -60,9 +65,10 @@ TESTS_LIBC_SRC 			= $(addprefix test_, ${LIBC_SRC})
 TESTS_LIBC 				= $(addprefix ${LIBC_PATH}, ${TESTS_LIBC_SRC})
 TESTS_ADITIONAL_SRC 	= $(addprefix test_, ${ADITIONAL_SRC})
 TESTS_ADITIONAL 		= $(addprefix ${ADITIONAL_PATH}, ${TESTS_ADITIONAL_SRC})
+TESTS_BONUS_SRC 		= $(addprefix test_, ${BONUS_SRC})
+TESTS_BONUS 			= $(addprefix ${BONUS_PATH}, ${TESTS_BONUS_SRC})
 
-TEST_SRC 				= ${TESTS_LIBC} ${TESTS_ADITIONAL}
-# TEST_SRC 				= ${TESTS_ADITIONAL}
+TEST_SRC 				= ${TESTS_LIBC} ${TESTS_ADITIONAL} ${TESTS_BONUS}
 
 TEST_SRCS_DIR			= $(addprefix ${T}, ${TEST_SRC})
 TESTS_NO_BIN 			= ${TEST_SRCS_DIR:.c=.o}
@@ -72,7 +78,10 @@ CC			= gcc
 
 NAME		= libft.a
 
-COMPILE.C	= ${CC} ${FLAGS} -c
+INCLUDE		= -I./include
+
+COMPILE.C	= ${CC} ${FLAGS} ${INCLUDE}
+DEV_COMPILE = ${CC} ${DEV-FLAGS} ${INCLUDE}
 
 OUTPUT_OPT	= -o $@
 
@@ -84,14 +93,14 @@ ${NAME}:	${OBJS}
 	@	echo "Succesfully created ${NAME}"
 
 bin/%.o:	%.c
-	@	mkdir -p bin/libc bin/aditional
+	@	mkdir -p bin/libc bin/aditional bin/bonus
 	@	echo "$< OK"
-	@	${CC} ${DEV-FLAGS} -c $< -o $@
+	@	${COMPILE.C} -c $< -o $@
 
 bin/tests/%.o: tests/%.c
-	@ 	mkdir -p bin/tests/libc bin/tests/aditional
+	@ 	mkdir -p bin/tests/libc bin/tests/aditional bin/tests/bonus
 	@	echo "$< OK"
-	@	${CC} ${DEV-FLAGS} $< -o $@ -L. -lft 
+	@	${DEV_COMPILE} $< -o $@ -L. -lft 
 
 test:	fclean ${NAME} ${TESTS_OBJS} ${OBJS}
 	@	for file in ${TESTS_OBJS}; do \

@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <stddef.h>
 
-#include "../../libft.h"
+#include "libft.h"
 
 void	putnbr_fd(int n, int fd)
 {

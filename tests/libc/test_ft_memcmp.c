@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "../../libft.h"
+#include "libft.h"
 
 void	test(const void *str, const void *str2, int n)
 {

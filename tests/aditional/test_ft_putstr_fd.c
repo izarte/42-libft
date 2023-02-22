@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#include "../../libft.h"
+#include "libft.h"
 
 void	putstr_fd(char *s, int fd)
 {

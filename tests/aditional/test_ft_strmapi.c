@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "../../libft.h"
+#include "libft.h"
 
 char	*strmapi(char const *s, char (*f)(unsigned int, char))
 {

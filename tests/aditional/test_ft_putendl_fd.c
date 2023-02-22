@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <stddef.h>
 
-#include "../../libft.h"
+#include "libft.h"
 
 void	putendl_fd(char *s, int fd)
 {

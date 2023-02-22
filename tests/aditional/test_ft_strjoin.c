@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "../../libft.h"
+#include "libft.h"
 
 
 char	*strjoin(char const *s1, char const *s2)

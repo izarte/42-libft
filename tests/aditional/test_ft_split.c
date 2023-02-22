@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../libft.h"
+#include "libft.h"
 
 char	**split(char const *s, char c);
 

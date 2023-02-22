@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "../../libft.h"
+#include "libft.h"
 
 void	striteri(char *s, void (*f)(unsigned int, char*))
 {
