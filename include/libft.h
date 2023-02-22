@@ -6,7 +6,7 @@
 /*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 11:20:42 by izarate-          #+#    #+#             */
-/*   Updated: 2023/02/22 13:41:51 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:02:27 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,5 @@ typedef struct s_list
 }   t_list;
 
 t_list  *ft_lstnew(void *content);
-
+void    ft_lstadd_front(t_list **lst, t_list *new);
 #endif
