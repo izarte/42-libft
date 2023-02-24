@@ -6,7 +6,7 @@
 /*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 11:20:42 by izarate-          #+#    #+#             */
-/*   Updated: 2023/02/23 01:31:35 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:31:17 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void    ft_lstadd_front(t_list **lst, t_list *new);
 int     ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list	*lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
 
 #endif
