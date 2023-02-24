@@ -8,7 +8,8 @@
 
 void    del(void *s)
 {
-    s = "";
+    if (!s)
+        s = 0;
 }
 
 void test(t_list *lst)
