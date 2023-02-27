@@ -14,7 +14,7 @@
 
 // TODO: REVIEW IF SPACE IS A CHARACTER
 
-int	ft_strlen(char *str);
+int			ft_strlen(char *str);
 static int	count_appear(char *s1, char const *set);
 static int	is_in(char s1, char *set);
 
