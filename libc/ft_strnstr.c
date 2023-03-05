@@ -27,7 +27,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 	{
 		lit_ptr = (char *)little;
 		i = 0;
-		while (big_ptr[i] == lit_ptr[i] && lit_ptr[i])
+		while (big_ptr[i] == lit_ptr[i] && lit_ptr[i] && n - i)
 			i++;
 		if (lit_ptr[i] == '\0')
 			found = 1;
