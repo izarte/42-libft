@@ -1,39 +1,13 @@
 BIN			=	bin/
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 BIN_TEST	= bin/tests/
 
->>>>>>> Stashed changes
-=======
-BIN_TEST	= bin/tests/
-
->>>>>>> Stashed changes
-=======
-BIN_TEST	= bin/tests/
-
->>>>>>> Stashed changes
 DEV-FLAGS	= -Wall -Wextra
 
 FLAGS		= ${DEV-FLAGS} -Werror
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 LIBC_PATH	= libc/
 
->>>>>>> Stashed changes
-=======
-LIBC_PATH	= libc/
-
->>>>>>> Stashed changes
-=======
-LIBC_PATH	= libc/
-
->>>>>>> Stashed changes
 LIBC_SRC	=	ft_isalpha.c 	\
 				ft_isdigit.c 	\
 				ft_isalnum.c 	\
@@ -59,18 +33,7 @@ LIBC_SRC	=	ft_isalpha.c 	\
 				ft_strdup.c		
 
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 ADITIONAL_PATH	= aditional/
->>>>>>> Stashed changes
-=======
-ADITIONAL_PATH	= aditional/
->>>>>>> Stashed changes
-=======
-ADITIONAL_PATH	= aditional/
->>>>>>> Stashed changes
 ADITIONAL_SRC	=	ft_substr.c		\
 					ft_strjoin.c	\
 					ft_strtrim.c	\
@@ -83,18 +46,7 @@ ADITIONAL_SRC	=	ft_substr.c		\
 					ft_putendl_fd.c	\
 					ft_putnbr_fd.c
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 BONUS_PATH	= 	bonus/
->>>>>>> Stashed changes
-=======
-BONUS_PATH	= 	bonus/
->>>>>>> Stashed changes
-=======
-BONUS_PATH	= 	bonus/
->>>>>>> Stashed changes
 BONUS_SRC	=	ft_lstnew_bonus.c		\
 				ft_lstadd_front_bonus.c	\
 				ft_lstsize_bonus.c		\
@@ -104,22 +56,6 @@ BONUS_SRC	=	ft_lstnew_bonus.c		\
 				ft_lstclear_bonus.c		\
 				ft_lstiter_bonus.c		\
 				ft_lstmap_bonus.c
-
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-OBJS_NO_BIN		= ${SRCS:.c=.o}
-
-SRCS			= ${LIBC_SRC} ${ADITIONAL_SRC} ${BONUS_SRC}
-
-OBJS		= $(addprefix ${BIN}, ${OBJS_NO_BIN})
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
 
 SRCS			= ${LIBC_SRC} ${ADITIONAL_SRC}
 
@@ -142,13 +78,6 @@ TEST_SRC 				= ${TESTS_LIBC} ${TESTS_ADITIONAL} ${TESTS_BONUS}
 TEST_SRCS_DIR			= $(addprefix ${T}, ${TEST_SRC})
 TESTS_NO_BIN 			= ${TEST_SRCS_DIR:.c=.o}
 TESTS_OBJS  			= $(addprefix ${BIN}, ${TESTS_NO_BIN})
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 CC			= gcc
 
@@ -156,58 +85,24 @@ NAME		= libft.a
 
 INCLUDE		= -I./include
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 COMPILE.C	= ${CC} ${FLAGS}
-
-OUTPUT_OPT	= -o $@
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-COMPILE.C	= ${CC} ${FLAGS} ${INCLUDE}
 DEV_COMPILE = ${CC} ${DEV-FLAGS} ${INCLUDE}
 
 OUTPUT_OPT	= -o $@
 AR			= ar -rcs
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 RM			= rm -f
 
 all: ${NAME}
 
 ${NAME}:	${OBJS}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	@	ar -rcs ${NAME} ${OBJS}
+	@	$(AR) ${NAME} ${OBJS}
 	@	echo "Succesfully created ${NAME}"
 
 bin/%_bonus.o: %_bonus.c
 	@	mkdir -p bin
 	@	echo "$< OK"
 	@	${COMPILE.C} ${INCLUDE} -c $< -o $@
-
-bin/%.o:	%.c
-	@	mkdir -p bin
-	@	echo "$< OK"
-	@	${COMPILE.C} -c $< -o $@
-
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-	@	$(AR) ${NAME} ${OBJS}
-	@	echo "Succesfully created ${NAME}"
 
 bin/%.o:	%.c
 	@	mkdir -p bin/libc bin/aditional bin/bonus
@@ -220,20 +115,13 @@ bin/tests/%.o: tests/%.c
 	@	${DEV_COMPILE} $< -o $@ -L. -lft 
 
 bonus: $(OBJS) $(BOJS)
-	$(AR) $(NAME) $?
+	$(AR) -r $(NAME) $?
 
 test:	fclean ${NAME} ${TESTS_OBJS} ${OBJS}
 	@	for file in ${TESTS_OBJS}; do \
 			./$$file; \
 		done
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 normi:
 	@	for file in ${SRCS}; do \
 			norminette $$file; \
@@ -244,33 +132,9 @@ clean:
 	@	echo "Succesfully deleted objects"
 
 fclean:	clean
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	@:	${RM} ${NAME}
-=======
 	@	${RM} ${NAME}
->>>>>>> Stashed changes
-=======
-	@	${RM} ${NAME}
->>>>>>> Stashed changes
-=======
-	@	${RM} ${NAME}
->>>>>>> Stashed changes
 	@	echo "Succesfully deleted library"
 
 re: fclean all
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-.PHONY	= clean fclean re
-=======
 .PHONY: clean fclean re
->>>>>>> Stashed changes
-=======
-.PHONY: clean fclean re
->>>>>>> Stashed changes
-=======
-.PHONY: clean fclean re
->>>>>>> Stashed changes

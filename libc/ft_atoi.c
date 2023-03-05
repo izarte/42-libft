@@ -16,15 +16,16 @@ int	ft_atoi(const char *str)
 	int	result;
 
 	sign = 1;
+	while (*str == ' ' || *str == '\n' || *str == '\t'
+		|| *str == '\v' || *str == '\f' || *str == '\r')
+		str++;
+	result = 0;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			sign = -1;
 		str++;
 	}
-	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v')
-		str++;
-	result = 0;
 	while (*str >= '0' && *str <= '9')
 	{
 		result = 10 * result + *str - '0';
