@@ -11,24 +11,20 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stddef.h>
 
-int	ft_strlen(char *str);
+int		ft_strlen(char *str);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 char	*ft_strdup(const char *str)
 {
 	int		size;
-	int		i;
 	char	*ptr;
 
 	size = ft_strlen((char *)str);
-	ptr = (char *)malloc(size * sizeof(char));
-	if (ptr == 0)
+	ptr = (char *)malloc((size + 1) * sizeof(char));
+	if (!ptr)
 		return (0);
-	i = 0;
-	while (i < size)
-	{
-		ptr[i] = str[i];
-		i++;
-	}
+	ft_strlcpy(ptr, str, size + 1);
 	return (ptr);
 }
