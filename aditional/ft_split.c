@@ -11,7 +11,9 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
+int			ft_strlen(const char *str);
 static int	count_separators(char *s, char c);
 static char	*string_to_separator(char **s, char c);
 static int	count_to_separator(char *s, char c);
@@ -42,15 +44,20 @@ char	**ft_split(char const *s, char c)
 
 static int	count_separators(char *s, char c)
 {
+	int	count;
 	int	i;
+	int	size;
 
 	i = 0;
-	while (*s)
+	count = 0;
+	size = ft_strlen(s);
+	while (s[i])
 	{
-		if (*s == c)
-			i++;
-		s++;
+		if (i && i < size && s[i] == c && s[i - 1] != c && s[i + 1] != c)
+			count++;
+		i++;
 	}
+	// printf("%i\n", i);
 	return (i + 1);
 }
 

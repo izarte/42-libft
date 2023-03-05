@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <bsd/string.h>
+#include <string.h>
 
 #include "libft.h"
 

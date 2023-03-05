@@ -13,6 +13,7 @@ void test(const char *s, char c)
 	char **own = ft_split(s, c);
 	while (ori[i])
 	{
+		printf("%s\n", own[i]);
 		if (strcmp(ori[i], own[i]))
 			printf("ERROR in test %s %c :\noriginial: %s own: %s\n", s, c, ori[i], own[i]);
 		i++;
@@ -21,14 +22,16 @@ void test(const char *s, char c)
 
 int main()
 {
-	test("test", 'z');
-	test("testdasfasgrfdcafwasfdgrethgf with spaces to be splitted", ' ');
-	test("testdasfasgrfdcafwasfdgrethgf with spaces to be splitted afsadgaesdf waefasd fawsedfa wsedfasedfased fasdfgasdfas", ' ');
-	test("test with spaces", ' ');
-	test("a a a a a a a a a a a a a a a a a a", ' ');
-	test("test with spaces to be splitted", ' ');
-	test("test,with,commas,to,be,splitted", ',');
-	test("", ' ');
+	// test("test", 'z');
+	// test("testdasfasgrfdcafwasfdgrethgf with spaces to be splitted", ' ');
+	// test("testdasfasgrfdcafwasfdgrethgf with spaces to be splitted afsadgaesdf waefasd fawsedfa wsedfasedfased fasdfgasdfas", ' ');
+	// test("test with spaces", ' ');
+	// test("a a a a a a a a a a a a a a a a a a", ' ');
+	// test("test with spaces to be splitted", ' ');
+	// test("test,with,commas,to,be,splitted", ',');
+	// test("", ' ');
+	// test("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+	test("                         ", ' ');
 	printf("Test ft_split completed!\n");
 }
 

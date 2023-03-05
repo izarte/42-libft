@@ -23,6 +23,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 	big_ptr = (char *) big;
 	if (!*little)
 		return (big_ptr);
+	if (big == little)
+		return ((char *) big);
 	while (n-- > 1 && !found && *big_ptr)
 	{
 		lit_ptr = (char *)little;
