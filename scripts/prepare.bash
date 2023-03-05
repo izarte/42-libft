@@ -9,6 +9,6 @@ do
 	cp "$folder"/*  "${name}"
 done
 
-cp scripts/deliverable_Makefile "${name}"
+cp scripts/deliverable_Makefile "${name}"/Makefile
 
 cp include/* "${name}"

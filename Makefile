@@ -88,7 +88,7 @@ NAME		= libft.a
 
 INCLUDE		= -I./include
 
-COMPILE.C	= ${CC} ${FLAGS} ${INCLUDE}
+COMPILE.C	= ${CC} ${FLAGS}
 DEV_COMPILE = ${CC} ${DEV-FLAGS} ${INCLUDE}
 
 OUTPUT_OPT	= -o $@
@@ -100,6 +100,11 @@ all: ${NAME}
 ${NAME}:	${OBJS}
 	@	ar -rcs ${NAME} ${OBJS}
 	@	echo "Succesfully created ${NAME}"
+
+bin/%_bonus.o: %_bonus.c
+	@	mkdir -p bin
+	@	echo "$< OK"
+	@	${COMPILE.C} ${INCLUDE} -c $< -o $@
 
 bin/%.o:	%.c
 	@	mkdir -p bin/libc bin/aditional bin/bonus

@@ -88,6 +88,7 @@ static void	free_string(char **s)
 
 	if (!s)
 		return ;
+	i = 0;
 	while (s[i])
 	{
 		free(s[i]);
