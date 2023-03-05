@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size1 = ft_strlen((char *) s1);
 	size = ft_strlen((char *) s2);
 	size += size1;
-	out = (char *) malloc(size * sizeof(char));
+	out = (char *) malloc((size + 1) * sizeof(char));
 	if (!out)
 		return (0);
 	i = 0;
@@ -35,5 +35,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			out[i] = s2[i - size1];
 		i++;
 	}
+	out[i] = '\0';
 	return (out);
 }
