@@ -13,20 +13,18 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+int		ft_strlen(const char *str);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*ptr;
-	unsigned int	i;
 
-	ptr = (char *) malloc(len * sizeof(char));
+	if (start > (unsigned int)ft_strlen(s))
+		len = 0;
+	ptr = (char *) malloc((len + 1) * sizeof(char));
 	if (!ptr)
 		return (0);
-	i = 0;
-	while (s[i + start] && i < len)
-	{
-		ptr[i] = s[i + start];
-		i++;
-	}
-	ptr[i] = '\0';
+	ft_strlcpy(ptr, &(s[start]), len + 1);
 	return (ptr);
 }
