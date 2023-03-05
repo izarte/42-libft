@@ -58,14 +58,17 @@ BONUS_SRC	=	ft_lstnew_bonus.c		\
 				ft_lstmap_bonus.c
 
 
-OBJS_NO_BIN		= ${SRCS:.c=.o}
+
 
 LIBC		= $(addprefix ${LIBC_PATH}, ${LIBC_SRC})
 ADITIONAL	= $(addprefix ${ADITIONAL_PATH}, ${ADITIONAL_SRC})
 BONUS	= $(addprefix ${BONUS_PATH}, ${BONUS_SRC})
-SRCS			= ${LIBC} ${ADITIONAL} ${BONUS}
+SRCS			= ${LIBC} ${ADITIONAL}
 
-OBJS		= $(addprefix ${BIN}, ${OBJS_NO_BIN})
+OBJS_NO_BIN		= ${SRCS:.c=.o}
+OBJS			= $(addprefix ${BIN}, ${OBJS_NO_BIN})
+BOBJS_NO_BIN	= ${BONUS:.c=.o}
+BOBJS			= $(addprefix ${BIN}, ${BOBJS_NO_BIN})
 
 T  = tests/
 
@@ -92,13 +95,14 @@ COMPILE.C	= ${CC} ${FLAGS}
 DEV_COMPILE = ${CC} ${DEV-FLAGS} ${INCLUDE}
 
 OUTPUT_OPT	= -o $@
+AR			= ar -rcs
 
 RM			= rm -f
 
 all: ${NAME}
 
 ${NAME}:	${OBJS}
-	@	ar -rcs ${NAME} ${OBJS}
+	@	$(AR) ${NAME} ${OBJS}
 	@	echo "Succesfully created ${NAME}"
 
 bin/%_bonus.o: %_bonus.c
@@ -116,6 +120,9 @@ bin/tests/%.o: tests/%.c
 	@	echo "$< OK"
 	@	${DEV_COMPILE} $< -o $@ -L. -lft 
 
+bonus: $(OBJS) $(BOJS)
+	$(AR) -r $(NAME) $?
+
 test:	fclean ${NAME} ${TESTS_OBJS} ${OBJS}
 	@	for file in ${TESTS_OBJS}; do \
 			./$$file; \
@@ -131,9 +138,9 @@ clean:
 	@	echo "Succesfully deleted objects"
 
 fclean:	clean
-	@:	${RM} ${NAME}
+	@	${RM} ${NAME}
 	@	echo "Succesfully deleted library"
 
 re: fclean all
 
-.PHONY	= clean fclean re
+.PHONY: clean fclean re

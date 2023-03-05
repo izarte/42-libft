@@ -16,7 +16,7 @@ void test(t_list *lst)
 {
     ft_lstdelone(lst, &del);
     if (lst && lst->content)
-        printf("ERROR\n");
+        printf("ERROR\n %s", (char *)lst->content);
 }
 
 int main()

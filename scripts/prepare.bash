@@ -2,6 +2,8 @@
 
 name="deliverable"
 
+if [ -d "${name}" ]; then rm -Rf ${name}; fi
+
 mkdir -p "${name}"
 
 for folder in "bonus" "libc" "aditional"
