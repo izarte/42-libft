@@ -30,8 +30,8 @@ int main()
 	// test("test with spaces to be splitted", ' ');
 	// test("test,with,commas,to,be,splitted", ',');
 	// test("", ' ');
-	// test("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-	test("                         ", ' ');
+	test("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+	// test("                         ", ' ');
 	printf("Test ft_split completed!\n");
 }
 

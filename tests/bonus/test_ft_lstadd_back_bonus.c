@@ -13,7 +13,7 @@ void	lstadd_back(t_list **lst, t_list *new)
 	if (*lst == NULL)
 		*lst = new;
 	else
-		ft_lstlast(*lst)->next = new;
+		ft_lstlast_bonus(*lst)->next = new;
 }
 
 void	print_list(t_list *list)
@@ -48,7 +48,7 @@ int compare_lists(t_list *l1, t_list *l2)
 void test(t_list **lst, t_list **lst2, t_list *new)
 {
     lstadd_back(lst, new);
-    ft_lstadd_back(lst2, new);
+    ft_lstadd_back_bonus(lst2, new);
     compare_lists(*lst, *lst2);
 }
 
@@ -59,18 +59,18 @@ int main()
     t_list *t2;
     t = 0;
     t2 = 0;
-    test(&t, &t2, ft_lstnew("first"));
-    t = ft_lstnew("test");
-    t2 = ft_lstnew("test");
-    lstadd_back(&t, ft_lstnew("new"));
-    lstadd_back(&t, ft_lstnew("new"));
-    lstadd_back(&t, ft_lstnew("new"));
-    lstadd_back(&t, ft_lstnew("new"));
-    ft_lstadd_back(&t2, ft_lstnew("new"));
-    ft_lstadd_back(&t2, ft_lstnew("new"));
-    ft_lstadd_back(&t2, ft_lstnew("new"));
-    ft_lstadd_back(&t2, ft_lstnew("new"));
-    test(&t, &t2, ft_lstnew("last"));
-    printf("Test ft_lstadd_back completed!\n");
+    test(&t, &t2, ft_lstnew_bonus("first"));
+    t = ft_lstnew_bonus("test");
+    t2 = ft_lstnew_bonus("test");
+    lstadd_back(&t, ft_lstnew_bonus("new"));
+    lstadd_back(&t, ft_lstnew_bonus("new"));
+    lstadd_back(&t, ft_lstnew_bonus("new"));
+    lstadd_back(&t, ft_lstnew_bonus("new"));
+    ft_lstadd_back_bonus(&t2, ft_lstnew_bonus("new"));
+    ft_lstadd_back_bonus(&t2, ft_lstnew_bonus("new"));
+    ft_lstadd_back_bonus(&t2, ft_lstnew_bonus("new"));
+    ft_lstadd_back_bonus(&t2, ft_lstnew_bonus("new"));
+    test(&t, &t2, ft_lstnew_bonus("last"));
+    printf("Test ft_lstadd_back_bonus completed!\n");
     return 0;
 }

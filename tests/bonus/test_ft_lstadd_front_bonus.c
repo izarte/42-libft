@@ -31,7 +31,7 @@ int compare_lists(t_list *l1, t_list *l2)
 void test(t_list **lst, t_list **lst2, t_list *new)
 {
     lstadd_front(lst, new);
-    ft_lstadd_front(lst2, new);
+    ft_lstadd_front_bonus(lst2, new);
     compare_lists(*lst, *lst2);
 }
 
@@ -40,11 +40,11 @@ int main()
 {
     t_list *t;
     t_list *t2;
-    t = ft_lstnew("test");
-    t2 = ft_lstnew("test");
-    test(&t, &t2, ft_lstnew("new"));
-    test(&t, &t2, ft_lstnew("test2"));
-    test(&t, &t2, ft_lstnew("new2"));
-    printf("Test ft_lstadd_front completed!\n");
+    t = ft_lstnew_bonus("test");
+    t2 = ft_lstnew_bonus("test");
+    test(&t, &t2, ft_lstnew_bonus("new"));
+    test(&t, &t2, ft_lstnew_bonus("test2"));
+    test(&t, &t2, ft_lstnew_bonus("new2"));
+    printf("Test ft_lstadd_front_bonus completed!\n");
     return 0;
 }

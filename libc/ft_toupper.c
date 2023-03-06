@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izarate- <izarate-@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 00:33:32 by izarate-          #+#    #+#             */
-/*   Updated: 2022/09/22 00:38:49 by izarate-         ###   ########.fr       */
+/*   Updated: 2023/03/06 02:07:20 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,5 @@ int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		c -= 32;
-	if (c < 0)
-		c += 256;
 	return (c);
 }

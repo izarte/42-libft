@@ -12,6 +12,7 @@ void test(int n, char *str)
 
 int main()
 {
+	test(0, "0");
 	test(30, "30");
 	test(8, "8");
 	test(-8, "-8");

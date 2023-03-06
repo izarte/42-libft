@@ -43,7 +43,7 @@ int compare_lists(t_list *l1, t_list *l2)
 void test(t_list *lst, t_list *lst2)
 {
     lstiter(lst, &f);
-    ft_lstiter(lst2, &f);
+    ft_lstiter_bonus(lst2, &f);
     compare_lists(lst, lst2);
 }
 
@@ -54,13 +54,13 @@ int main()
     t = 0;
     t2 = 0;
     test(t, t2);
-    t = ft_lstnew("test");
-    t2 = ft_lstnew("test");
-    ft_lstadd_back(&t, ft_lstnew("new"));
-    ft_lstadd_back(&t2, ft_lstnew("new"));
-    ft_lstadd_back(&t, ft_lstnew("new"));
-    ft_lstadd_back(&t2, ft_lstnew("new"));
+    t = ft_lstnew_bonus("test");
+    t2 = ft_lstnew_bonus("test");
+    ft_lstadd_back_bonus(&t, ft_lstnew_bonus("new"));
+    ft_lstadd_back_bonus(&t2, ft_lstnew_bonus("new"));
+    ft_lstadd_back_bonus(&t, ft_lstnew_bonus("new"));
+    ft_lstadd_back_bonus(&t2, ft_lstnew_bonus("new"));
     test(t, t2);
-    printf("Test ft_lstiter completed!\n");
+    printf("Test ft_lstiter_bonus completed!\n");
     return 0;
 }

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 21:13:54 by izarate-          #+#    #+#             */
-/*   Updated: 2023/02/27 14:40:00 by izarate-         ###   ########.fr       */
+/*   Created: 2023/03/06 02:02:33 by izarate-          #+#    #+#             */
+/*   Updated: 2023/03/06 02:02:34 by izarate-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize_bonus(t_list *lst)
 {
 	int	i;
 

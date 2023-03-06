@@ -12,7 +12,7 @@ int	lstsize(t_list *lst)
 		return (0);
 	if (lst->next == NULL)
 		return (1);
-	return (1 + ft_lstsize(lst->next));
+	return (1 + ft_lstsize_bonus(lst->next));
 }
 
 int compare_lists(t_list *l1, t_list *l2)
@@ -34,7 +34,7 @@ int compare_lists(t_list *l1, t_list *l2)
 void test(t_list *lst, int n)
 {
     int ori = lstsize(lst);
-    int own = ft_lstsize(lst);
+    int own = ft_lstsize_bonus(lst);
 	if (ori != own)
 		printf("ERROR in test %i :\noriginial: %i own: %i\n", n, ori, own);
 }
@@ -45,16 +45,16 @@ int main()
     t_list *t;
 	t = 0;
 	test(t, 1);
-    t = ft_lstnew("test");
+    t = ft_lstnew_bonus("test");
 	test(t, 2);
-	ft_lstadd_front(&t, ft_lstnew("new"));
-	ft_lstadd_front(&t, ft_lstnew("3"));
+	ft_lstadd_front_bonus(&t, ft_lstnew_bonus("new"));
+	ft_lstadd_front_bonus(&t, ft_lstnew_bonus("3"));
 	test(t, 3);
-	ft_lstadd_front(&t, ft_lstnew("test"));
-	ft_lstadd_front(&t, ft_lstnew("18"));
-	ft_lstadd_front(&t, ft_lstnew("new"));
-	ft_lstadd_front(&t, ft_lstnew(""));
+	ft_lstadd_front_bonus(&t, ft_lstnew_bonus("test"));
+	ft_lstadd_front_bonus(&t, ft_lstnew_bonus("18"));
+	ft_lstadd_front_bonus(&t, ft_lstnew_bonus("new"));
+	ft_lstadd_front_bonus(&t, ft_lstnew_bonus(""));
 	test(t, 4);
-    printf("Test ft_lstsize completed!\n");
+    printf("Test ft_lstsize_bonus completed!\n");
     return 0;
 }

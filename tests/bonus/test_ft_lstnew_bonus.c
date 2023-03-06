@@ -37,7 +37,7 @@ int compare_lists(t_list *l1, t_list *l2)
 void test(void *a)
 {
     t_list *ori = lstnew(a);
-    t_list *own = ft_lstnew(a);
+    t_list *own = ft_lstnew_bonus(a);
     compare_lists(ori, own);
 
 }
@@ -51,6 +51,6 @@ int main()
     test(&a);
     test(&b);
     test(c);
-    printf("Test ft_lstnew completed!\n");
+    printf("Test ft_lstnew_bonus completed!\n");
     return 0;
 }
