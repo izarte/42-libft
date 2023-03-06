@@ -115,7 +115,8 @@ bin/tests/%.o: tests/%.c
 	@	${DEV_COMPILE} $< -o $@ -L. -lft 
 
 bonus: $(OBJS) $(BOJS)
-	$(AR) $(NAME) $?
+	@	$(AR) $(NAME) $?
+	@	echo "Succesfully created ${NAME}"
 
 test:	fclean ${NAME} ${TESTS_OBJS} ${OBJS}
 	@	for file in ${TESTS_OBJS}; do \

@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 	char	*big_ptr;
 	char	*lit_ptr;
 
+	if (n == 0  && !big)
+		return (0);
 	big_ptr = (char *) big;
 	if (!*little)
 		return (big_ptr);
