@@ -12,7 +12,7 @@
 
 #include <stddef.h>
 
-void	*ft_memcpy(void *dest, void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*uc_dest;
 	unsigned char	*uc_src;
@@ -20,7 +20,7 @@ void	*ft_memcpy(void *dest, void *src, size_t n)
 	if (!dest && !src)
 		return (0);
 	uc_dest = dest;
-	uc_src = src;
+	uc_src = (unsigned char *) src;
 	while (n)
 	{
 		*uc_dest = *uc_src;

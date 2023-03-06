@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-void	ft_lstdelone_bonus(t_list *lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
-void	ft_lstclear_bonus(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
 	t_list	*actual;
@@ -27,7 +27,7 @@ void	ft_lstclear_bonus(t_list **lst, void (*del)(void *))
 	while (*lst)
 	{	
 		tmp = (*lst)->next;
-		ft_lstdelone_bonus(*lst, del);
+		ft_lstdelone(*lst, del);
 		*lst = tmp;
 	}
 	*lst = actual;

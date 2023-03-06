@@ -30,6 +30,8 @@ char	**ft_split(char const *s, char c)
 	str = (char *) s;
 	words = count_words(str, c);
 	out = (char **) malloc((words + 1) * sizeof(char *));
+	if (!out)
+		return (0);
 	out[words] = 0;
 	i = 0;
 	while (i < words)

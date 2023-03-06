@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_lstadd_back_bonus(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 

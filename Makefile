@@ -47,15 +47,15 @@ ADITIONAL_SRC	=	ft_substr.c		\
 					ft_putnbr_fd.c
 
 BONUS_PATH	= 	bonus/
-BONUS_SRC	=	ft_lstnew_bonus_bonus.c		\
-				ft_lstadd_front_bonus_bonus.c	\
-				ft_lstsize_bonus_bonus.c		\
-				ft_lstlast_bonus_bonus.c		\
-				ft_lstadd_back_bonus_bonus.c	\
-				ft_lstdelone_bonus_bonus.c	\
-				ft_lstclear_bonus_bonus.c		\
-				ft_lstiter_bonus_bonus.c		\
-				ft_lstmap_bonus_bonus.c
+BONUS_SRC	=	ft_lstnew_bonus.c		\
+				ft_lstadd_front_bonus.c	\
+				ft_lstsize_bonus.c		\
+				ft_lstlast_bonus.c		\
+				ft_lstadd_back_bonus.c	\
+				ft_lstdelone_bonus.c	\
+				ft_lstclear_bonus.c		\
+				ft_lstiter_bonus.c		\
+				ft_lstmap_bonus.c
 
 
 
@@ -67,8 +67,8 @@ SRCS			= ${LIBC} ${ADITIONAL}
 
 OBJS_NO_BIN		= ${SRCS:.c=.o}
 OBJS			= $(addprefix ${BIN}, ${OBJS_NO_BIN})
-BOBJS_NO_BIN	= ${BONUS:.c=.o}
-BOBJS			= $(addprefix ${BIN}, ${BOBJS_NO_BIN})
+BOJS_NO_BIN	= ${BONUS:.c=.o}
+BOJS			= $(addprefix ${BIN}, ${BOJS_NO_BIN})
 
 T  = tests/
 

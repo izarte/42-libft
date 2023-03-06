@@ -12,26 +12,17 @@
 
 #include <stddef.h>
 
-int	ft_strlen(char *str);
+int		ft_strlen(char *str);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	i;
 	size_t	dst_size;
-	size_t	src_size;
+	size_t	out;
 
-	dst_size = (size_t)ft_strlen(dst);
-	src_size = (size_t)ft_strlen((char *)src);
-	i = 0;
-	while (size && dst_size + i < size - 1 && src[i])
-	{
-		dst[dst_size + i] = src[i];
-		i++;
-	}
-	if (size != 0)
-		dst[dst_size + i] = '\0';
-	if (src_size + size < src_size + dst_size)
-		return (src_size + size);
-	return (src_size + dst_size);
-	return ((size_t)ft_strlen(dst));
+	dst_size = ft_strlen(dst);
+	if (dst_size > size)
+		dst_size = size;
+	out = ft_strlcpy(&(dst[dst_size]), src, size - dst_size);
+	return (out + dst_size);
 }
