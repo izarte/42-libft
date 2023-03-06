@@ -13,6 +13,7 @@
 #include <stdlib.h>
 
 static int	count_digits(int n);
+static char	*get_array(char *out, int size, int n, int i);
 
 char	*ft_itoa(int n)
 {
@@ -21,8 +22,13 @@ char	*ft_itoa(int n)
 	char	*out;
 
 	size = count_digits(n);
-	out = (char *) malloc(size * sizeof(char));
+	out = (char *) malloc((size + 1) * sizeof(char));
+	out[size] = '\0';
+	if (!out)
+		return (0);
 	i = 0;
+	if (n == 0)
+		out[0] = '0';
 	if (n < 0)
 	{
 		out[i] = '-';
@@ -31,12 +37,7 @@ char	*ft_itoa(int n)
 		n = n * -1;
 		i++;
 	}
-	while (n)
-	{
-		out[size - i - 1] = n % 10 + '0';
-		n /= 10;
-		i++;
-	}
+	out = get_array(out, size, n, i);
 	return (out);
 }
 
@@ -45,6 +46,8 @@ static int	count_digits(int n)
 	int	i;
 
 	i = 0;
+	if (n == 0)
+		i = 1;
 	if (n < 0)
 	{
 		i = 2;
@@ -57,4 +60,15 @@ static int	count_digits(int n)
 		i++;
 	}
 	return (i);
+}
+
+static char	*get_array(char *out, int size, int n, int i)
+{
+	while (n)
+	{
+		out[size - i - 1] = n % 10 + '0';
+		n /= 10;
+		i++;
+	}
+	return (out);
 }
